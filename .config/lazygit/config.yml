@@ -1,0 +1,17 @@
+gui:
+  # Already working for 'edit' but keep explicit
+  editor: "nvim"
+
+os:
+  # Use Neovim for both edit and open actions
+  editCommand: "nvim"
+  editCommandTemplate: "{{editor}} +{{line}} {{filename}}"
+
+  # Force 'open' (o) to use Neovim instead of macOS 'open' or Xcode
+  openCommand: "nvim"
+  openCommandTemplate: "{{editor}} {{filename}}"
+
+git:
+  # Make sure any git-invoked editors inside LazyGit are Neovim
+  prefixCommand: "GIT_EDITOR=nvim EDITOR=nvim VISUAL=nvim"
+
