@@ -1,0 +1,5 @@
+alias m-dance='mpv http://stream.dancewave.online:8080/'
+alias m-focus='mpv https://datashat.net/music_for_programming_75-datassette.mp3'
+alias m-teknival='mpv http://listen.teknivalradio.com:8020/radio.flac'
+alias m-monster='mpv https://ic.radiomonster.fm/dance.ultra'
+alias m-deephouse='mpv http://62.210.105.16:7000/listen.pls'

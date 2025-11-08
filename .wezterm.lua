@@ -49,6 +49,10 @@ local my_scripts = {
 		args = run("pnpm start -a"),
 	},
 	{
+		label = "time-off check",
+		args = run("pnpm -F time-off check"),
+	},
+	{
 		label = "time-off unit tests",
 		args = run("pnpm -F time-off test"),
 	},
@@ -63,6 +67,10 @@ local my_scripts = {
 	{
 		label = "time-off integration test",
 		args = run(appendClipboard("pnpm -F time-off test:rickybobby")),
+	},
+	{
+		label = "time-off new empty migration",
+		args = run(appendClipboard("pnpm -F time-off db:migration:empty")),
 	},
 }
 
