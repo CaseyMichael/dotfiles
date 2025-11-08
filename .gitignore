@@ -5,6 +5,7 @@
 .bash_history
 .bash_profile
 .bashrc
+.bi-sockets/
 .bun/
 .cache/
 .cdk8s-cli.version
@@ -38,6 +39,7 @@
 .node_repl_history
 .npm/
 .npmrc
+.osquery/
 .pgadmin/
 .pnpm-state/
 .pnpm-store/
@@ -49,6 +51,8 @@
 .ssh/
 .swiftpm/
 .tmux/
+.Trash/
+.thumbnails/
 .vim/
 .viminfo
 .vimrc
@@ -61,6 +65,7 @@
 Applications/
 Developer/
 Documents/
+Desktop/
 Downloads/
 Github/
 Library/
@@ -69,6 +74,8 @@ Music/
 PROD EXPORTS/
 Pictures/
 Playwright/
+Postman/
+psql_queries/
 Public/
 go/
 iCloud Drive (Archive)/

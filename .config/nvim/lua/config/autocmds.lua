@@ -1,0 +1,25 @@
+-- Autocmds are automatically loaded on the VeryLazy event
+-- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
+-- Add any additional autocmds here
+
+-- Enable automatic diagnostic display on hover
+vim.api.nvim_create_autocmd("CursorHold", {
+	callback = function()
+		local opts = {
+			focusable = false,
+			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+			border = "rounded",
+			source = "always",
+			prefix = " ",
+			scope = "cursor",
+		}
+		vim.diagnostic.open_float(nil, opts)
+	end,
+})
+
+vim.lsp.enable({
+	"tsgo",
+	"lua_ls",
+	"jsonls",
+	-- other language servers
+})
