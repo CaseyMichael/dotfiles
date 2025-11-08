@@ -59,7 +59,6 @@
 .zsh_sessions/
 .zshenv
 Applications/
-*.jpeg
 Developer/
 Documents/
 Downloads/
@@ -71,8 +70,9 @@ PROD EXPORTS/
 Pictures/
 Playwright/
 Public/
-README.md
 go/
 iCloud Drive (Archive)/
-iris_rev__6.layout.json
-psql_queries/
+
+# all pictures
+*.jpeg
+*.sql
