@@ -79,6 +79,7 @@ psql_queries/
 Public/
 go/
 iCloud Drive (Archive)/
+.config/claude
 
 # all pictures
 *.jpeg
