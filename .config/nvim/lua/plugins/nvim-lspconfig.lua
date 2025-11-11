@@ -1,6 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
-	enabled = true,
+	enabled = false,
 	dependencies = {
 		"b0o/SchemaStore.nvim", -- Ensure schemastore loads before lspconfig
 	},
@@ -12,7 +12,7 @@ return {
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
-		
+
 		-- Register tsgo as a custom server if not already registered
 		if not lspconfig.configs.tsgo then
 			lspconfig.configs.tsgo = {
@@ -25,7 +25,7 @@ return {
 				},
 			}
 		end
-		
+
 		-- Load JSON LSP config (includes SchemaStore)
 		local jsonls_config = require("lsp.jsonls")
 		if jsonls_config then
@@ -44,13 +44,13 @@ return {
 				})
 			end
 		end
-		
+
 		-- Load Lua LSP config
 		local lua_ls_config = require("lsp.lua_ls")
 		if lua_ls_config then
 			lspconfig.lua_ls.setup(lua_ls_config)
 		end
-		
+
 		-- Load tsgo config (TypeScript/JavaScript)
 		-- Note: tsgo.lua may return nil if no project root is found, which is OK
 		local tsgo_config_ok, tsgo_config = pcall(require, "lsp.tsgo")

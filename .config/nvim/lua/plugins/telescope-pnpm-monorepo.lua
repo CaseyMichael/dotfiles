@@ -1,19 +1,17 @@
 return {
-	"CaseyPeters/monorepo.nvim",
+	"CaseyMichael/telescope-pnpm-monorepo.nvim",
+	dir = "~/Developer/telescope-pnpm-monorepo.nvim",
 	enabled = true,
 	config = function()
-		require("monorepo").setup({
+		require("pnpm_monorepo").setup({
 			silent = false, -- Show vim.notify messages
 			autoload_telescope = true, -- Automatically load telescope extension
 			data_path = vim.fn.stdpath("data"), -- Where to save monorepo.json
 		})
 		-- Set up keybinds as shown in the documentation
-		vim.keymap.set("n", "<leader>mm", function()
-			require("telescope").extensions.monorepo.monorepo()
+		vim.keymap.set("n", "<leader>m", function()
+			require("telescope").extensions.pnpm_monorepo.pnpm_monorepo()
 		end, { desc = "Open monorepo projects" })
-		vim.keymap.set("n", "<leader>mt", function()
-			require("monorepo").toggle_project()
-		end, { desc = "Toggle monorepo project" })
 	end,
 	dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 }
