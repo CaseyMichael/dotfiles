@@ -25,10 +25,29 @@ capabilities.textDocument.codeLens = {
 	dynamicRegistration = false,
 }
 
+-- Find tsgo binary in PATH or common locations
+local function find_tsgo()
+	local paths = {
+		vim.fn.exepath("tsgo"), -- Check PATH first
+		"/opt/homebrew/bin/tsgo", -- Homebrew on Apple Silicon
+		"/usr/local/bin/tsgo", -- Homebrew on Intel Mac
+		"/usr/bin/tsgo", -- System-wide
+	}
+	
+	for _, path in ipairs(paths) do
+		if path and path ~= "" and vim.fn.executable(path) == 1 then
+			return path
+		end
+	end
+	
+	-- Fallback to PATH (vim.fn.exepath will return empty if not found, but cmd will still try)
+	return "tsgo"
+end
+
 ---@type vim.lsp.Config
 return {
 	cmd = {
-		"/opt/homebrew/bin/tsgo",
+		find_tsgo(),
 		"lsp",
 		"--stdio",
 	},

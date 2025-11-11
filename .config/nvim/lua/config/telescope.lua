@@ -2,6 +2,9 @@ require("telescope").setup({
     extensions = {
       project = {
         on_project_selected = function(prompt_bufnr)
+          local action_state = require("telescope.actions.state")
+          local project_actions = require("telescope._extensions.project.actions")
+          
           -- Change dir to the selected project
           project_actions.change_working_directory(prompt_bufnr, false)
   

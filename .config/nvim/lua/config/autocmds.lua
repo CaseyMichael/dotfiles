@@ -17,9 +17,6 @@ vim.api.nvim_create_autocmd("CursorHold", {
 	end,
 })
 
-vim.lsp.enable({
-	"tsgo",
-	"lua_ls",
-	"jsonls",
-	-- other language servers
-})
+-- LSP servers are automatically configured via lspconfig
+-- Individual server configs are in lua/lsp/ directory
+-- No need to manually enable them here
