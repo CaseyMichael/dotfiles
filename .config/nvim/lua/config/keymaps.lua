@@ -22,3 +22,33 @@ end, { desc = "Move to top of screen", silent = true })
 vim.keymap.set("n", "L", function()
     vim.cmd("normal! L")
 end, { desc = "Move to bottom of screen", silent = true })
+
+-- View notification history and messages
+vim.keymap.set("n", "<leader>sn", function()
+    -- Try noice history first, fallback to messages
+    if pcall(require, "noice") then
+        vim.cmd("Noice history")
+    else
+        vim.cmd("messages")
+    end
+end, { desc = "Notification History" })
+
+vim.keymap.set("n", "<leader>sm", "<cmd>messages<cr>", { desc = "View All Messages" })
+
+-- Disable LazyVim's default LSP keybindings that conflict with lspsaga
+-- lspsaga handles these keys, so we unmap LazyVim's defaults
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client then
+			-- Unmap LazyVim's default LSP keybindings to prevent conflicts with lspsaga
+			local buf = args.buf
+			vim.keymap.del("n", "gd", { buffer = buf })
+			vim.keymap.del("n", "gD", { buffer = buf })
+			vim.keymap.del("n", "gr", { buffer = buf })
+			vim.keymap.del("n", "K", { buffer = buf })
+			vim.keymap.del("n", "]d", { buffer = buf })
+			vim.keymap.del("n", "[d", { buffer = buf })
+		end
+	end,
+})

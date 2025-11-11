@@ -1,9 +1,6 @@
 return {
 	"folke/snacks.nvim",
-	enabled = true,
 	opts = {
-		image = { enabled = true },
-		statuscolumn = { enabled = true },
 		explorer = {
 			keys = {
 				Y = function(self)

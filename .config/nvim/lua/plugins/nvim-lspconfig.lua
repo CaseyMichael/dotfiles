@@ -1,6 +1,7 @@
 return {
 	"neovim/nvim-lspconfig",
 	enabled = true,
+	priority = 1000, -- Load before LazyVim's default lspconfig config
 	dependencies = {
 		"b0o/SchemaStore.nvim", -- Ensure schemastore loads before lspconfig
 	},
@@ -10,10 +11,11 @@ return {
 			vtsls = false, -- Disable vtsls in favor of tsgo
 		},
 	},
-	config = function()
+	config = function(_, opts)
 		local lspconfig = require("lspconfig")
 		
-		-- Register tsgo as a custom server if not already registered
+		-- Register tsgo IMMEDIATELY, before anything else
+		-- This must happen before LazyVim processes opts.servers
 		if not lspconfig.configs.tsgo then
 			lspconfig.configs.tsgo = {
 				default_config = {
@@ -27,9 +29,13 @@ return {
 		end
 		
 		-- Load JSON LSP config (includes SchemaStore)
-		local jsonls_config = require("lsp.jsonls")
-		if jsonls_config then
-			lspconfig.jsonls.setup(jsonls_config)
+		-- Use dofile to load from lsp/ directory since it's not in Lua path
+		local jsonls_path = vim.fn.stdpath("config") .. "/lsp/jsonls.lua"
+		if vim.fn.filereadable(jsonls_path) == 1 then
+			local ok, jsonls_config = pcall(dofile, jsonls_path)
+			if ok and jsonls_config then
+				lspconfig.jsonls.setup(jsonls_config)
+			end
 		else
 			-- Fallback if lsp/jsonls.lua doesn't exist
 			local schemastore_ok, schemastore = pcall(require, "schemastore")
@@ -46,16 +52,22 @@ return {
 		end
 		
 		-- Load Lua LSP config
-		local lua_ls_config = require("lsp.lua_ls")
-		if lua_ls_config then
-			lspconfig.lua_ls.setup(lua_ls_config)
+		local lua_ls_path = vim.fn.stdpath("config") .. "/lsp/lua_ls.lua"
+		if vim.fn.filereadable(lua_ls_path) == 1 then
+			local ok, lua_ls_config = pcall(dofile, lua_ls_path)
+			if ok and lua_ls_config then
+				lspconfig.lua_ls.setup(lua_ls_config)
+			end
 		end
 		
 		-- Load tsgo config (TypeScript/JavaScript)
 		-- Note: tsgo.lua may return nil if no project root is found, which is OK
-		local tsgo_config_ok, tsgo_config = pcall(require, "lsp.tsgo")
-		if tsgo_config_ok and tsgo_config then
-			lspconfig.tsgo.setup(tsgo_config)
+		local tsgo_path = vim.fn.stdpath("config") .. "/lsp/tsgo.lua"
+		if vim.fn.filereadable(tsgo_path) == 1 then
+			local ok, tsgo_config = pcall(dofile, tsgo_path)
+			if ok and tsgo_config then
+				lspconfig.tsgo.setup(tsgo_config)
+			end
 		end
 	end,
 }

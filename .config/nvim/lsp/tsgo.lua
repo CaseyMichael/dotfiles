@@ -22,7 +22,42 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.general = capabilities.general or {}
 capabilities.general.positionEncodings = { "utf-16" }
 capabilities.textDocument.codeLens = {
-	dynamicRegistration = false,
+	dynamicRegistration = true,
+}
+capabilities.textDocument.completion = {
+	completionItem = {
+		snippetSupport = true,
+		resolveSupport = {
+			properties = {
+				"documentation",
+				"detail",
+				"additionalTextEdits",
+			},
+		},
+	},
+}
+capabilities.textDocument.codeAction = {
+	codeActionLiteralSupport = {
+		codeActionKind = {
+			valueSet = {
+				"",
+				"quickfix",
+				"refactor",
+				"refactor.extract",
+				"refactor.inline",
+				"refactor.rewrite",
+				"source",
+				"source.organizeImports",
+				"source.fixAll",
+			},
+		},
+	},
+}
+capabilities.workspace = {
+	fileOperations = {
+		didRename = true,
+		willRename = true,
+	},
 }
 
 -- Find tsgo binary in PATH or common locations
@@ -174,6 +209,74 @@ return {
 				},
 			})
 		end, vim.tbl_extend("force", opts, { desc = "Fix All" }))
+
+		-- Extract to variable/function (refactoring)
+		vim.keymap.set("v", "<leader>ce", function()
+			vim.lsp.buf.code_action({
+				apply = false,
+				context = {
+					only = { "refactor.extract" },
+				},
+			})
+		end, vim.tbl_extend("force", opts, { desc = "Extract" }))
+
+		-- Inline variable/function
+		vim.keymap.set("n", "<leader>ci", function()
+			vim.lsp.buf.code_action({
+				apply = false,
+				context = {
+					only = { "refactor.inline" },
+				},
+			})
+		end, vim.tbl_extend("force", opts, { desc = "Inline" }))
+
+		-- Quick fix
+		vim.keymap.set("n", "<leader>cq", function()
+			vim.lsp.buf.code_action({
+				apply = true,
+				context = {
+					only = { "quickfix" },
+				},
+			})
+		end, vim.tbl_extend("force", opts, { desc = "Quick Fix" }))
+
+		-- Show all code actions
+		vim.keymap.set("n", "<leader>cA", function()
+			vim.lsp.buf.code_action()
+		end, vim.tbl_extend("force", opts, { desc = "Code Actions" }))
+
+		-- Format document
+		vim.keymap.set("n", "<leader>cf", function()
+			vim.lsp.buf.format({ async = true })
+		end, vim.tbl_extend("force", opts, { desc = "Format" }))
+
+		-- Format selection
+		vim.keymap.set("v", "<leader>cf", function()
+			local start = vim.fn.getpos("'<")
+			local finish = vim.fn.getpos("'>")
+			vim.lsp.buf.format({
+				async = true,
+				range = {
+					["start"] = { start[2], start[3] - 1 },
+					["end"] = { finish[2], finish[3] - 1 },
+				},
+			})
+		end, vim.tbl_extend("force", opts, { desc = "Format Selection" }))
+
+		-- Type hierarchy
+		vim.keymap.set("n", "<leader>ct", function()
+			vim.lsp.buf.type_definition()
+		end, vim.tbl_extend("force", opts, { desc = "Type Definition" }))
+
+		-- Implementation
+		vim.keymap.set("n", "<leader>cI", function()
+			vim.lsp.buf.implementation()
+		end, vim.tbl_extend("force", opts, { desc = "Implementation" }))
+
+		-- Signature help
+		vim.keymap.set("n", "<leader>ch", function()
+			vim.lsp.buf.signature_help()
+		end, vim.tbl_extend("force", opts, { desc = "Signature Help" }))
 	end,
 
 	-- Flags for better performance with large monorepos

@@ -1,32 +1,49 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	opts = function(_, opts)
-		-- Ensure GraphQL parser is installed
-		opts.ensure_installed = opts.ensure_installed or {}
-		vim.list_extend(opts.ensure_installed, {
+		vim.list_extend(opts.ensure_installed or {}, {
 			"graphql",
 			"typescript",
 			"tsx",
 			"javascript",
 		})
-
-		-- Enable additional features
-		opts.highlight = opts.highlight or {}
-		opts.highlight.enable = true
-		opts.highlight.additional_vim_regex_highlighting = false
-
-		-- Enable indentation
-		opts.indent = opts.indent or {}
-		opts.indent.enable = true
-
-		-- Incremental selection
-		opts.incremental_selection = {
-			enable = true,
-			keymaps = {
-				init_selection = "<C-space>",
-				node_incremental = "<C-space>",
-				scope_incremental = false,
-				node_decremental = "<bs>",
+		opts.textobjects = {
+			select = {
+				enable = true,
+				keymaps = {
+					["af"] = "@function.outer",
+					["if"] = "@function.inner",
+					["ac"] = "@class.outer",
+					["ic"] = "@class.inner",
+					["aC"] = "@call.outer",
+					["iC"] = "@call.inner",
+					["aP"] = "@parameter.outer",
+					["iP"] = "@parameter.inner",
+				},
+			},
+			move = {
+				enable = true,
+				goto_next_start = {
+					["]f"] = "@function.outer",
+					["]c"] = "@class.outer",
+					["]C"] = "@call.outer",
+					["]p"] = "@parameter.outer",
+				},
+				goto_previous_start = {
+					["[f"] = "@function.outer",
+					["[c"] = "@class.outer",
+					["[C"] = "@call.outer",
+					["[p"] = "@parameter.outer",
+				},
+			},
+			swap = {
+				enable = true,
+				swap_next = {
+					["<leader>sa"] = "@parameter.inner",
+				},
+				swap_previous = {
+					["<leader>sA"] = "@parameter.inner",
+				},
 			},
 		}
 	end,
