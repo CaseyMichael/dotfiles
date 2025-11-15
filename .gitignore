@@ -38,6 +38,7 @@
 .nix-profile
 .no_more_nix
 .node_repl_history
+nodemon.json
 .npm/
 .npmrc
 .osquery/
@@ -48,6 +49,7 @@
 .python_history
 .rover/
 .saml2aws
+.supermaven/
 .sqitch/
 .ssh/
 .swiftpm/
