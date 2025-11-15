@@ -1,3 +1,3 @@
-alias pto='pnpm -F time-off'
-alias pw='pnpm -F weaver'
-alias pd='pnpm -F dazzle'
+alias pb='pnpm bootstrap'
+alias pfw='pnpm -F weaver'
+alias pfd='pnpm -F dazzle'

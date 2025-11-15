@@ -26,7 +26,7 @@ fpath+=(
 # zsh will look in these directories.
 # ------------------------------------------
 
-unalias run-help
+#unalias run-help
 autoload run-help
 HELPDIR="$HOMEBREW_PREFIX/share/zsh/$ZSH_VERSION/help"
 alias help=run-help
