@@ -10,6 +10,7 @@
 .cache/
 .cdk8s-cli.version
 .chatgpt/
+.config/claude
 .claude.backup*
 .claude.json
 .claude.json.backup
@@ -58,11 +59,13 @@
 .vimrc
 .vscode/
 .warp/
+.wrangler/
 .zcompdump*
 .zsh_history
 .zsh_sessions/
 .zshenv
 Applications/
+configstore/
 Developer/
 Documents/
 Desktop/
@@ -77,9 +80,9 @@ Playwright/
 Postman/
 psql_queries/
 Public/
+temporalio/
 go/
 iCloud Drive (Archive)/
-.config/claude
 
 # all pictures
 *.jpeg
