@@ -2,20 +2,14 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-
-
 # Inserted by de2 installer
 source ~/.lattice-magic-zsh
 
 # Add /bin/env to path
 . "$HOME/.local/bin/env"
 
-
-if [[ -z "$SHELL_INITIALIZED" ]]; then
-    source ~/.config/shell/init.sh
-    source ~/.config/shell/variables.sh
-fi
-
+source ~/.config/shell/init.sh
+source ~/.config/shell/variables.sh
 source ~/.config/shell/zsh/options.sh
 source ~/.config/shell/shortcuts.sh
 

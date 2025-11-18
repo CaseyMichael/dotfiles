@@ -33,3 +33,6 @@ if [[ $- == *i* ]]; then
 fi
 
 source "$XDG_CONFIG_HOME/shell/secrets.sh"
+
+export RAINFROG_CONFIG=~/.config/rainfrog/config.toml
+export RAINFROG_FAVORITES=~/.config/rainfrog/favorites

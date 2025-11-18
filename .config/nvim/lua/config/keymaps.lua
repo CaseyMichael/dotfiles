@@ -16,9 +16,10 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnosti
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Diagnostics to location list" })
 
+-- Custom yank file name
 vim.keymap.set("n", "<leader>fy", function()
 	local filename = vim.fn.expand("%:t")
-	vim.fn.setreg("+", filename) -- Yank the relative path to the system clipboard
+	vim.fn.setreg("+", filename)
 	print("Yanked relative path: " .. filename)
 end, { desc = "Yank file name" })
 
@@ -33,4 +34,3 @@ end, { desc = "Move to top of screen", silent = true })
 vim.keymap.set("n", "L", function()
 	vim.cmd("normal! L")
 end, { desc = "Move to bottom of screen", silent = true })
-

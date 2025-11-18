@@ -1,0 +1,2 @@
+[db]
+entitystore = { connection_string = "postgresql://localhost/entitystore", driver = "postgres" }
