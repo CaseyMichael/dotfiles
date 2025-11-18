@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 	end,
 })
 
-vim.lsp.enable('tsgo')
+vim.lsp.enable("tsgo")
 
 -- LSP Attach autocmd - matching kickstart.nvim keybindings
 -- This sets up buffer-local LSP features when an LSP attaches to a buffer
@@ -43,25 +43,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- LSP Keymaps using kickstart.nvim bindings with Telescope for navigation
 		-- Rename the variable under your cursor
-		map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+		map("gn", vim.lsp.buf.rename, "[R]e[n]ame")
 
 		-- Execute a code action (usually needs cursor on error/suggestion)
-		map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+		map("ga", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
 
 		-- Find references for the word under your cursor (using Telescope)
-		map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+		map("gR", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 
 		-- Jump to the implementation (using Telescope)
-		map("gri", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+		map("gi", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 
 		-- Jump to the definition (using Telescope)
 		-- This is where a variable was first declared, or where a function is defined, etc.
 		-- To jump back, press <C-t>
-		map("grd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+		map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 
 		-- WARN: This is not Goto Definition, this is Goto Declaration.
 		-- For example, in C this would take you to the header.
-		map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 		-- Fuzzy find all the symbols in your current document (using Telescope)
 		map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("gW", require("telescope.builtin").lsp_dynamic_workspace_symbols, "Open Workspace Symbols")
 
 		-- Jump to the type definition (using Telescope)
-		map("grt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
+		map("gt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
 
 		-- Format buffer (using LSP)
 		map("<leader>f", function()
@@ -78,7 +78,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, "[F]ormat buffer")
 
 		-- Document highlighting: highlight references when cursor rests
-		if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+		if
+			client
+			and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf)
+		then
 			local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 				buffer = event.buf,
@@ -109,3 +112,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 	end,
 })
+
