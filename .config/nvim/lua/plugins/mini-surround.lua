@@ -12,9 +12,4 @@ return {
 			update_n_lines = "sn", -- Update n lines
 		},
 	},
-	config = function(_, opts)
-		require("mini.surround").setup(opts)
-		-- Disable default Vim "s" behavior to avoid conflicts with mini.surround
-		vim.keymap.set("n", "s", "<Nop>", { desc = "Disable default s behavior" })
-	end,
 }

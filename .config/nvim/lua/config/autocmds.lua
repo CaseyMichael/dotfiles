@@ -17,7 +17,27 @@ vim.api.nvim_create_autocmd("CursorHold", {
 	end,
 })
 
-vim.lsp.enable("tsgo")
+-- Diagnostic configuration (similar to kickstart.nvim)
+-- See :help vim.diagnostic.Opts
+vim.diagnostic.config({
+	severity_sort = true,
+	float = {
+		border = "rounded",
+		source = "if_many",
+	},
+	underline = {
+		severity = vim.diagnostic.severity.ERROR,
+	},
+	virtual_text = {
+		source = "if_many",
+		spacing = 2,
+		format = function(diagnostic)
+			return diagnostic.message
+		end,
+	},
+})
+
+-- vim.lsp.enable("tsgo")
 
 -- LSP Attach autocmd - matching kickstart.nvim keybindings
 -- This sets up buffer-local LSP features when an LSP attaches to a buffer
@@ -112,4 +132,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 	end,
 })
-

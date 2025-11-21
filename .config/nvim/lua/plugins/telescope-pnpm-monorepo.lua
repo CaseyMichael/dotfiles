@@ -2,6 +2,12 @@ return {
 	"CaseyMichael/telescope-pnpm-monorepo.nvim",
 	dir = "~/Developer/telescope-pnpm-monorepo.nvim",
 	enabled = true,
+	-- TODO: Refactor this to work with the opts with lazyvim
+	-- opts = {
+	--   slient = false,
+	--   autoload_telescope = true,
+	--   data_path = vim.fn.stdpath("data")
+	-- }
 	config = function()
 		require("pnpm_monorepo").setup({
 			silent = false, -- Show vim.notify messages

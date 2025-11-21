@@ -34,3 +34,33 @@ end, { desc = "Move to top of screen", silent = true })
 vim.keymap.set("n", "L", function()
 	vim.cmd("normal! L")
 end, { desc = "Move to bottom of screen", silent = true })
+
+-- CodeSnap keymaps
+-- vim.keymap.set("x", "<leader>pc", "<cmd>CodeSnap<cr>", { desc = "[P]icture [c]lipboard" })
+vim.keymap.set("x", "<leader>pc", function()
+	vim.cmd("CodeSnap")
+end, { desc = "[P]icture [c]lipboard" })
+
+vim.keymap.set("x", "<leader>ps", function()
+	local filename = string.format("codesnap-%s.png", os.date("%Y-%m-%d_%H-%M-%S"))
+	local path = string.format("%s/Pictures/codesnap/%s", vim.fn.expand("~"), filename)
+	vim.fn.mkdir(string.format("%s/Pictures/codesnap", vim.fn.expand("~")), "p")
+	vim.cmd(string.format("CodeSnapSave %s", path))
+end, { desc = "[P]icture [s]ave" })
+
+vim.keymap.set("x", "<leader>pa", "<cmd>CodeSnapASCII<cr>", { desc = "[P]icture [a]scii" })
+vim.keymap.set("x", "<leader>ph", "<cmd>CodeSnapHighlight<cr>", { desc = "[P]icture [h]ighlight" })
+
+-- Disable default Vim "s" behavior to avoid conflicts with mini.surround
+vim.keymap.set("n", "s", "<Nop>", { desc = "Disable default s behavior" })
+
+-- Monorepo
+-- Set up keybinds as shown in the documentation
+vim.keymap.set("n", "<leader>m", function()
+	require("telescope").extensions.pnpm_monorepo.pnpm_monorepo()
+end, { desc = "Open monorepo projects" })
+
+-- Telescope
+vim.keymap.set("n", "<leader>fw", function()
+	require("telescope").extensions.pnpm.workspace()
+end, { desc = "Open pnpm projects" })
