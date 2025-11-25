@@ -54,7 +54,7 @@ vim.keymap.set("x", "<leader>ph", "<cmd>CodeSnapHighlight<cr>", { desc = "[P]ict
 -- Disable default Vim "s" behavior to avoid conflicts with mini.surround
 vim.keymap.set("n", "s", "<Nop>", { desc = "Disable default s behavior" })
 
--- Monorepo
+-- Telescope monorepo
 -- Set up keybinds as shown in the documentation
 vim.keymap.set("n", "<leader>m", function()
 	require("telescope").extensions.pnpm_monorepo.pnpm_monorepo()

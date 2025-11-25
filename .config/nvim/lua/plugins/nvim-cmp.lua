@@ -12,11 +12,12 @@ return {
 	opts = function(_, opts)
 		-- LazyVim's nvim-cmp extra should configure sources automatically
 		-- But we ensure nvim_lsp source is present for TypeScript/LSP completion
-		opts.sources = opts.sources or {
-			{ name = "nvim_lsp" }, -- LSP completion (includes TypeScript via tsgo)
-			{ name = "path" }, -- Path completion
-			{ name = "luasnip" }, -- Snippet completion
-		}
+		opts.sources = opts.sources
+			or {
+				{ name = "nvim_lsp" }, -- LSP completion (includes TypeScript via tsgo)
+				{ name = "path" }, -- Path completion
+				{ name = "luasnip" }, -- Snippet completion
+			}
 
 		-- Ensure nvim_lsp source is in the sources list if it's not already
 		local has_lsp_source = false
@@ -29,6 +30,11 @@ return {
 		if not has_lsp_source then
 			table.insert(opts.sources, { name = "nvim_lsp" })
 		end
+
+		table.insert(opts.sources, {
+			name = "lazydev",
+			group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+		})
 
 		return opts
 	end,
