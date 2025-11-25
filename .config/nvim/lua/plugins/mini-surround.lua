@@ -12,4 +12,8 @@ return {
 			update_n_lines = "sn", -- Update n lines
 		},
 	},
+	keys = {
+		-- Disable default Vim "s" behavior to avoid conflicts with mini.surround
+		{ "s", "<Nop>", desc = "Disable default s behavior" },
+	},
 }
