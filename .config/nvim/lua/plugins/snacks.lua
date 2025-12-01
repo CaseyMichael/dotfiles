@@ -4,5 +4,12 @@ return {
 	opts = {
 		image = { enabled = true },
 		statuscolumn = { enabled = true },
+		picker = {
+			sources = {
+				explorer = {
+					hidden = true,
+				},
+			},
+		},
 	},
 }
