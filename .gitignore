@@ -11,11 +11,13 @@
 .cdk8s-cli.version
 .chatgpt/
 .config/claude
+.config/iterm2
 .claude.backup*
 .claude.json
 .claude.json.backup
 .claude/
 .colima/
+.cpan/
 .cups/
 .cursor/
 .docker/
@@ -25,6 +27,7 @@
 .gem/
 .gitconfig
 .gk/
+.gnupg/
 .gtk-bookmarks
 .iterm2_shell_integration.zsh
 .lattice-magic-bash
@@ -62,6 +65,7 @@ nodemon.json
 .vscode/
 .warp/
 .wrangler/
+.wget-hsts
 .zcompdump*
 .zsh_history
 .zsh_sessions/
