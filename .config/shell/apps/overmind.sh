@@ -1,4 +1,5 @@
 alias o=overmind
+alias ora=overmind restart # restarts all processes
 
 # overmind
 # export OVERMIND_SOCKET=$HOME/.overmind.sock
