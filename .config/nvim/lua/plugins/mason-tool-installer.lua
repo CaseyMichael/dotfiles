@@ -2,7 +2,7 @@ return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	opts = {
 		ensure_installed = {
-      "bash-language-server",
+			"bash-language-server",
 			"css-variables-language-server",
 			"docker-compose-language-service",
 			"dockerfile-language-server",
@@ -28,7 +28,6 @@ return {
 			"tree-sitter-cli",
 			"tsgo",
 			"yaml-language-server",
-
 		},
 	},
 }
