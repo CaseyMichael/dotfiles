@@ -27,6 +27,7 @@
 .iterm2_shell_integration.zsh
 .lattice-magic-bash
 .lattice-magic-zsh
+.rediscli_history
 
 # ------------------------------------------------------------------------------
 # Development Tools & Package Managers
