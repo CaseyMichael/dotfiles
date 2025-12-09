@@ -102,7 +102,7 @@ nodemon.json
 .ssh/
 .gnupg/
 .saml2aws
-secrets.sh
+*secrets.sh
 
 # ------------------------------------------------------------------------------
 # Programming Language Specific
