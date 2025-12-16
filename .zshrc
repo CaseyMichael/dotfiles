@@ -20,6 +20,7 @@ source ~/.config/shell/apps/lattice.sh
 source ~/.config/shell/apps/lazygit.sh
 source ~/.config/shell/apps/mpv.sh
 source ~/.config/shell/apps/neovim.sh
+source ~/.config/shell/apps/ngrok.sh
 source ~/.config/shell/apps/overmind.sh
 source ~/.config/shell/apps/pnpm.sh
 source ~/.config/shell/apps/starship.sh
