@@ -410,3 +410,12 @@ setopt null_glob
 # With `null_glob` enabled:
 # `rm *.bak` will just do nothing if no `.bak` files exist.
 # ------------------------------------------
+
+source <(fzf --zsh)
+# Set up fzf key bindings and fuzzy completion
+#
+
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
+# ngrok auto completion

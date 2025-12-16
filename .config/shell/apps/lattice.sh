@@ -1,4 +1,3 @@
-alias pb='pnpm bootstrap'
 alias pfw='pnpm -F weaver'
 alias pfd='pnpm -F dazzle'
 
@@ -22,7 +21,7 @@ function _sqs-resolve-queue-url() {
   if [ -z "$1" ]; then
     return 1
   fi
-  
+
   local queue_name="$1"
   local endpoint=$(sqs-endpoint)
   local queue_url=$(aws-local sqs get-queue-url \
@@ -30,12 +29,12 @@ function _sqs-resolve-queue-url() {
     --endpoint-url "$endpoint" \
     --query 'QueueUrl' \
     --output text 2>/dev/null)
-  
+
   if [ -z "$queue_url" ]; then
     echo "Error: Queue '$queue_name' not found" >&2
     return 1
   fi
-  
+
   echo "$queue_url"
 }
 
@@ -43,15 +42,15 @@ function _sqs-resolve-queue-url() {
 function sqs-queues-with-messages() {
   local endpoint=$(sqs-endpoint)
   local queues=$(aws-local sqs list-queues --endpoint-url "$endpoint" --query 'QueueUrls[]' --output text 2>/dev/null)
-  
+
   if [ -z "$queues" ]; then
     echo "No queues found or unable to connect to endpoint: $endpoint"
     return 1
   fi
-  
+
   echo "Checking queues for messages (endpoint: $endpoint)..."
   echo ""
-  
+
   for queue_url in $queues; do
     local count=$(aws-local sqs get-queue-attributes \
       --queue-url "$queue_url" \
@@ -59,7 +58,7 @@ function sqs-queues-with-messages() {
       --endpoint-url "$endpoint" \
       --query 'Attributes.ApproximateNumberOfMessages' \
       --output text 2>/dev/null)
-    
+
     if [ -n "$count" ] && [ "$count" -gt 0 ]; then
       local queue_name=$(basename "$queue_url")
       printf "%-60s %s messages\n" "$queue_name" "$count"
@@ -77,29 +76,29 @@ function sqs-get-messages() {
     echo "  wait-seconds: long polling wait time (default: 0, max: 20)"
     return 1
   fi
-  
+
   local queue_name="$1"
   local max_messages="${2:-10}"
   local wait_seconds="${3:-0}"
   local endpoint=$(sqs-endpoint)
-  
+
   local queue_url=$(_sqs-resolve-queue-url "$queue_name")
   if [ $? -ne 0 ]; then
     return 1
   fi
-  
+
   if [ "$max_messages" -gt 10 ]; then
     max_messages=10
   fi
-  
+
   if [ "$wait_seconds" -gt 20 ]; then
     wait_seconds=20
   fi
-  
+
   echo "Receiving messages from queue: $queue_name"
   echo "Endpoint: $endpoint"
   echo ""
-  
+
   aws-local sqs receive-message \
     --queue-url "$queue_url" \
     --max-number-of-messages "$max_messages" \
@@ -116,15 +115,15 @@ function sqs-queue-count() {
     echo "  queue-name: name of the queue (e.g., weaver-worker-job-architecture-default-attributes)"
     return 1
   fi
-  
+
   local queue_name="$1"
   local endpoint=$(sqs-endpoint)
-  
+
   local queue_url=$(_sqs-resolve-queue-url "$queue_name")
   if [ $? -ne 0 ]; then
     return 1
   fi
-  
+
   aws-local sqs get-queue-attributes \
     --queue-url "$queue_url" \
     --attribute-names ApproximateNumberOfMessages ApproximateNumberOfMessagesNotVisible \
@@ -136,7 +135,7 @@ function sqs-queue-count() {
 # List all queues
 function sqs-list-queues() {
   local endpoint=$(sqs-endpoint)
-  
+
   echo "Queues (endpoint: $endpoint):"
   aws-local sqs list-queues --endpoint-url "$endpoint" --output table
 }
@@ -148,10 +147,10 @@ function sqs-get-queue-url() {
     echo "Usage: sqs-get-queue-url <queue-name>"
     return 1
   fi
-  
+
   local queue_name="$1"
   local endpoint=$(sqs-endpoint)
-  
+
   aws-local sqs get-queue-url \
     --queue-name "$queue_name" \
     --endpoint-url "$endpoint" \
@@ -167,16 +166,16 @@ function sqs-send-message() {
     echo "  queue-name: name of the queue (e.g., weaver-worker-job-architecture-default-attributes)"
     return 1
   fi
-  
+
   local queue_name="$1"
   local message_body="${2:-{\"test\": \"message\", \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}}"
   local endpoint=$(sqs-endpoint)
-  
+
   local queue_url=$(_sqs-resolve-queue-url "$queue_name")
   if [ $? -ne 0 ]; then
     return 1
   fi
-  
+
   echo "Sending message to: $queue_name"
   aws-local sqs send-message \
     --queue-url "$queue_url" \
@@ -193,20 +192,20 @@ function sqs-purge-queue() {
     echo "  queue-name: name of the queue (e.g., weaver-worker-job-architecture-default-attributes)"
     return 1
   fi
-  
+
   local queue_name="$1"
   local endpoint=$(sqs-endpoint)
-  
+
   local queue_url=$(_sqs-resolve-queue-url "$queue_name")
   if [ $? -ne 0 ]; then
     return 1
   fi
-  
+
   echo "Purging queue: $queue_name"
   aws-local sqs purge-queue \
     --queue-url "$queue_url" \
     --endpoint-url "$endpoint"
-  
+
   if [ $? -eq 0 ]; then
     echo "Queue purged successfully"
   fi
@@ -220,15 +219,15 @@ function sqs-queue-attributes() {
     echo "  queue-name: name of the queue (e.g., weaver-worker-job-architecture-default-attributes)"
     return 1
   fi
-  
+
   local queue_name="$1"
   local endpoint=$(sqs-endpoint)
-  
+
   local queue_url=$(_sqs-resolve-queue-url "$queue_name")
   if [ $? -ne 0 ]; then
     return 1
   fi
-  
+
   aws-local sqs get-queue-attributes \
     --queue-url "$queue_url" \
     --attribute-names All \

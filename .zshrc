@@ -12,15 +12,12 @@ source ~/.config/shell/init.sh
 source ~/.config/shell/variables.sh
 source ~/.config/shell/zsh/options.sh
 source ~/.config/shell/shortcuts.sh
+source ~/.config/shell/secrets.sh
 
-source ~/.config/shell/apps/atac.sh
-source ~/.config/shell/apps/brew.sh
-source ~/.config/shell/apps/git.sh
-source ~/.config/shell/apps/lattice.sh
-source ~/.config/shell/apps/lazygit.sh
-source ~/.config/shell/apps/mpv.sh
-source ~/.config/shell/apps/neovim.sh
-source ~/.config/shell/apps/ngrok.sh
-source ~/.config/shell/apps/overmind.sh
-source ~/.config/shell/apps/pnpm.sh
-source ~/.config/shell/apps/starship.sh
+
+# source all files in the ~/.config/shell/apps dir
+for f in ~/.config/shell/apps/*.sh; do
+  if [ -r "$f" ] && [ -f "$f" ]; then
+    . "$f"
+  fi
+done
