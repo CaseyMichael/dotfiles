@@ -1,4 +1,5 @@
 alias bs="brew search "
+alias bu="brew upgrade"
 
 bi() {
   if [ $# -eq 0 ]; then

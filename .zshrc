@@ -21,3 +21,11 @@ for f in ~/.config/shell/apps/*.sh; do
     . "$f"
   fi
 done
+
+# pnpm
+export PNPM_HOME="/Users/casey/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

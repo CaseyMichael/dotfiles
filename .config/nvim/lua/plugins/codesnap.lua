@@ -1,5 +1,6 @@
 return {
 	"mistricky/codesnap.nvim",
+	enabled = true,
 	tag = "v2.0.0-beta.17",
 	opts = {},
 	keys = {

@@ -1,5 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
+	enabled = true,
 	dependencies = {
 		"hrsh7th/cmp-emoji",
 		-- LazyVim provides these via extras, but being explicit here

@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+	enabled = true,
 	opts = {
 		servers = {
 			vtsls = false, -- Disable vtsls in favor of tsgo

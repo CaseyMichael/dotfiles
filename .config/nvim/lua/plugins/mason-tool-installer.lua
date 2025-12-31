@@ -1,5 +1,6 @@
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	enabled = true,
 	opts = {
 		ensure_installed = {
 			"bash-language-server",

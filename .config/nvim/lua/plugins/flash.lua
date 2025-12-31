@@ -1,5 +1,5 @@
 return {
 	"folke/flash.nvim",
-	enabled = true,
+	enabled = false, -- DISABLED: Testing for crash issues
 	opts = {},
 }

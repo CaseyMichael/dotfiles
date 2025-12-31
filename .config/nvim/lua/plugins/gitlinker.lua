@@ -1,5 +1,6 @@
 return {
 	"linrongbin16/gitlinker.nvim",
+	enabled = true,
 	cmd = "GitLink",
 	opts = {},
 	keys = {

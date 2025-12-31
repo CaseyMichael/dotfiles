@@ -1,5 +1,6 @@
 return {
 	"nvim-mini/mini.surround",
+	enabled = true,
 	opts = {
 		-- Customize key mappings
 		mappings = {
