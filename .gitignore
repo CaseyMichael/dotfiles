@@ -124,6 +124,7 @@ go/
 .cups/
 .fjira/
 configstore/
+gtk-2.0/
 temporalio/
 Playwright/
 Postman/
