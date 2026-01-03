@@ -1,6 +1,6 @@
 alias g='git '
 alias gco='git checkout origin/main'
-alias prs='git dash'
+alias gdash='gh dash'
 
 # https://www.gh-dash.dev/getting-started/
 function installGithubDashExtension() {
