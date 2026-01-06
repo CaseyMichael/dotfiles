@@ -5,6 +5,22 @@ prSections:
     filters: is:open review-requested:@me
   - title: Involved
     filters: is:open involves:@me -author:@me
+  - title: jterk-lattice
+    filters: is:open author:jterk-lattice
+  - title: malkapick
+    filters: is:open author:malkapick
+  - title: rebshess
+    filters: is:open author:rebshess
+  - title: shirley-lat
+    filters: is:open author:shirley-lat
+  - title: saeedeh-ghazvinian
+    filters: is:open author:saeedeh-ghazvinian
+  - title: BrianBrown
+    filters: is:open author:b-twice
+  - title: nodarsan
+    filters: is:open author:nodarsan
+  - title: ivojawer
+    filters: is:open author:ivojawer
 issuesSections:
   - title: My Issues
     filters: is:open author:@me
