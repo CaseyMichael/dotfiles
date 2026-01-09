@@ -1,4 +1,5 @@
 alias pfw='pnpm -F weaver'
+alias pfwla='RUN_ALL_ESLINT_RULES=true pnpm -F weaver lint '
 alias pfd='pnpm -F dazzle'
 
 function updateTsgo() {
