@@ -5,7 +5,37 @@
 
 # Code Style
 
-- Write code that follows the Command-Query Separation design pattern
+- Write code that adheres to the following principles
+
+## Tell, Don't Ask
+
+- Tell objects what to do, don't ask for their state and make decisions
+- order.complete() not if (order.getStatus() === 'pending') order.setStatus('complete')
+
+## Composition Over Inheritance
+
+- Favor "has-a" relationships over "is-a"
+- More flexible, avoids deep inheritance hierarchies
+
+## Fail Fast
+
+- Validate inputs immediately at boundaries
+- Throw errors early rather than propagating invalid state
+
+## DRY (Don't Repeat Yourself)
+
+- Avoid duplicate logic
+- Extract common patterns into reusable functions
+
+## YAGNI (You Aren't Gonna Need It)
+
+- Don't add functionality until it's necessary
+- Avoid over-engineering
+
+## Law of Demeter (Principle of Least Knowledge)
+
+- Only talk to immediate friends
+- Avoid chaining: object.getX().getY().doZ() → pass what you need directly
 
 ## Command-Query Separation (CQS)
 
