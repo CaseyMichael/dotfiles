@@ -1,0 +1,9 @@
+version: "3"
+agent:
+    authtoken: 2f0h7Ba0mJ98GQxeczF3yc1bEFs_2E5dxq9frBqsZdAxUDzC
+
+endpoints:
+  - name: rippling
+    url: https://rhino-relevant-hedgehog.ngrok-free.app
+    upstream:
+      url: 5005
