@@ -61,6 +61,7 @@ nodemon.json
 .osquery/
 .pgadmin/
 .sqitch/
+.sqlit/query_history.json
 
 # ------------------------------------------------------------------------------
 # Editors & IDEs
@@ -102,8 +103,10 @@ nodemon.json
 # ------------------------------------------------------------------------------
 .ssh/
 .gnupg/
+.granted/
 .saml2aws
 *secrets.sh
+
 
 # ------------------------------------------------------------------------------
 # Programming Language Specific
@@ -147,6 +150,7 @@ Public/
 iCloud Drive (Archive)/
 PROD EXPORTS/
 psql_queries/
+sftp_test/
 
 # ------------------------------------------------------------------------------
 # File Type Patterns
