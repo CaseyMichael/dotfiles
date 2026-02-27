@@ -1,0 +1,28 @@
+{
+  "theme": "tokyo-night",
+  "expanded_nodes": [
+    "conn:Entitystore",
+    "conn:Entitystore/folder:tables",
+    "conn:Entitystore/folder:tables/schema:ai_platform",
+    "conn:Entitystore/folder:tables/schema:ai_platform/table:ai_platform.embeds_text_embedding_3_small_double",
+    "conn:Entitystore/folder:tables/schema:analytics",
+    "conn:Entitystore/folder:tables/schema:analytics/table:analytics.employee_health_data",
+    "conn:Entitystore/folder:tables/schema:calendar",
+    "conn:Entitystore/folder:tables/schema:entity",
+    "conn:Entitystore/folder:tables/schema:entity/table:entity.admin_impersonations",
+    "conn:Entitystore/folder:tables/schema:entity/table:entity.integration_import_logs",
+    "conn:Entitystore/folder:tables/schema:entity/table:entity.legacy_user_details",
+    "conn:Entitystore/folder:tables/schema:integrations",
+    "conn:Entitystore/folder:tables/schema:payroll",
+    "conn:Entitystore/folder:tables/schema:payroll/table:payroll.employees_who_opt_out_of_electronic_tax_delivery",
+    "conn:Entitystore/folder:tables/schema:platform",
+    "conn:Entitystore/folder:tables/schema:platform/table:platform.company_color_schemes",
+    "conn:Entitystore/folder:tables/schema:platform/table:platform.import_event_logs",
+    "conn:Entitystore/folder:tables/schema:platform/table:platform.sfdc_contacts_syncs",
+    "conn:Entitystore/folder:tables/schema:platform/table:platform.sftp_companies",
+    "conn:Entitystore/folder:tables/schema:public",
+    "conn:Entitystore/folder:tables/schema:public/table:public.__app_roles",
+    "conn:Entitystore/folder:tables/schema:public/table:public.__secure_role_tables",
+    "conn:Entitystore/folder:tables/schema:users"
+  ]
+}
