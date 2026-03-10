@@ -2,12 +2,12 @@
 -- Plugin-specific keymaps have been moved to their respective plugin files in lua/plugins/
 -- See: codesnap.lua, mini-surround.lua, telescope-pnpm-monorepo.lua, nvim-lspconfig.lua, bufferline.lua
 
--- Custom yank file name
+-- Custom yank relative path from root
 vim.keymap.set("n", "<leader>fy", function()
-	local filename = vim.fn.expand("%:t")
-	vim.fn.setreg("+", filename)
-	print("Yanked relative path: " .. filename)
-end, { desc = "Yank file name" })
+	local relative_path = vim.fn.expand("%:.")
+	vim.fn.setreg("+", relative_path)
+	print("Yanked relative path: " .. relative_path)
+end, { desc = "Yank relative path from root" })
 
 -- Restore H and L to original Vim screen motions (disable LazyVim's buffer navigation)
 vim.keymap.set("n", "H", function()
