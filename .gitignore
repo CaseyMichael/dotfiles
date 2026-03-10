@@ -85,7 +85,17 @@ nodemon.json
 # AI & Development Assistants
 # ------------------------------------------------------------------------------
 .chatgpt/
-.claude/
+.claude/agents/
+.claude/commands/
+.claude/debug/
+.claude/docs/
+.claude/ide/
+.claude/plugins/
+.claude/projects/
+.claude/shell-snapshots/
+.claude/statsig/
+.claude/todos/
+.claude/history.jsonl
 .claude.json
 .claude.json.backup
 .claude.backup*
