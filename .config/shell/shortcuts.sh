@@ -19,13 +19,14 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias dev="cd ~/Dev"
-alias devn="cd ~/Dev/null"
-alias icd="cd ~/Library/Mobile\\ Documents/com~apple~CloudDocs"
-alias ico="cd ~/Library/Mobile\\ Documents/iCloud~md~obsidian/Documents"
+alias dev="cd ~/Developer/"
 
 # === System
 alias mymac="system_profiler SPHardwareDataType | rg -i \"Model Identifier|Chip|Memory\" | awk '{\$1=\$1; print}' && echo -n 'OS: ' && sw_vers -productName | tr -d '\n' && echo -n ' ' && sw_vers -productVersion"
+
+find-pid-by-port() {
+  lsof -ti :"$1"
+}
 
 function l() {
   if [[ -z $1 ]]; then
