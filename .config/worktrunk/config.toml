@@ -104,8 +104,8 @@ echo "📦 Bootstrapping dependencies..."
 pnpm bootstrap
 """
 copy-env = """
-echo "📋 Copying .env files from main worktree..."
-cd {{ main_worktree_path }}
+echo "📋 Copying .env files from main worktree_path..."
+cd {{ primary_worktree_path }}
 find apps -name '.env' -type f | while read -r file; do
     echo "  → Copying $file"
     mkdir -p "{{ worktree_path }}/$(dirname "$file")"
