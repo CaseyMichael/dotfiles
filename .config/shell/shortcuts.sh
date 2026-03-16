@@ -142,6 +142,34 @@ alias hosts="sudo $EDITOR /etc/hosts"
 alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 
+flake-check() {
+  local runs=100
+  if [[ "$1" =~ ^[0-9]+$ ]]; then
+    runs=$1
+    shift
+  fi
+
+  local cmd=("$@")
+  local pass=0
+  local fail=0
+
+  for i in $(seq 1 "$runs"); do
+    if "${cmd[@]}" >/dev/null 2>&1; then
+      ((pass++))
+    else
+      ((fail++))
+    fi
+    printf "\r[%d/%d] ✓ %d  ✗ %d" "$i" "$runs" "$pass" "$fail"
+  done
+
+  echo ""
+  if [[ $fail -eq 0 ]]; then
+    echo "All $runs runs passed"
+  else
+    echo "$fail/$runs runs failed"
+  fi
+}
+
 # Prints listners on a specific port. E.g. `p 3000`
 function p() {
   if [ -z "$1" ]; then
