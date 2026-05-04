@@ -3,6 +3,12 @@ set -euo pipefail
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# --- Homebrew ---
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 link() {
   local src_rel="$1"
   local dest_rel="${2:-$src_rel}"
@@ -26,6 +32,7 @@ link() {
   echo "  ->  $dest_rel"
 }
 
+# --- Symlinks ---
 echo "Linking dotfiles from $DOTFILES to $HOME"
 echo
 
@@ -63,5 +70,10 @@ link claude/statusline-command.sh .claude/statusline-command.sh
 # .sqlit
 link sqlit .sqlit
 
+# --- Packages ---
 echo
-echo "Done."
+echo "Installing packages from Brewfile..."
+brew bundle --file="$DOTFILES/config/brew/Brewfile"
+
+echo
+echo "Done. Restart your shell: exec zsh"
