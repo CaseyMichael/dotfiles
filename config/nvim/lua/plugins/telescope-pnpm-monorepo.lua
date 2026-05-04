@@ -1,6 +1,6 @@
 return {
 	"CaseyMichael/telescope-pnpm-monorepo.nvim",
-	dir = "~/Developer/telescope-pnpm-monorepo.nvim",
+	-- dir = "~/Developer/telescope-pnpm-monorepo.nvim",
 	enabled = true,
 	opts = {
 		slient = false,
