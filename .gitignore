@@ -1,177 +1,21 @@
-# ==============================================================================
-# Global .gitignore for user home directory
-# ==============================================================================
-
-# ------------------------------------------------------------------------------
-# macOS System Files
-# ------------------------------------------------------------------------------
 .DS_Store
-.CFUserTextEncoding
-.Trash/
-.thumbnails/
 
-# ------------------------------------------------------------------------------
-# Shell Configuration & History
-# ------------------------------------------------------------------------------
-.bash_history
-.bash_profile
-.bashrc
-.zsh_history
-.zsh_sessions/
-.zshenv
-.zcompdump*
-.lesshst
-.python_history
-.psql_history
-.node_repl_history
-.iterm2_shell_integration.zsh
-.lattice-magic-bash
-.lattice-magic-zsh
-.rediscli_history
-
-# ------------------------------------------------------------------------------
-# Development Tools & Package Managers
-# ------------------------------------------------------------------------------
-.lattice-pnpm*
-.npm/
-.npmrc
-.pnpm-state/
-.pnpm-store/
-.bun/
-.cache/
-.cpan/
-.gem/
-.rover/
-nodemon.json
-
-# ------------------------------------------------------------------------------
-# Cloud & Infrastructure Tools
-# ------------------------------------------------------------------------------
-.aws/
-.colima/
-.docker/
-.lima/
-.wrangler/
-.meta-networks/
-.cdk8s-cli.version
-
-# ------------------------------------------------------------------------------
-# Databases & Query Tools
-# ------------------------------------------------------------------------------
-.duckdb/
-.osquery/
-.pgadmin/
-.sqitch/
-.sqlit/query_history.json
-
-# ------------------------------------------------------------------------------
-# Editors & IDEs
-# ------------------------------------------------------------------------------
-.vim/
-.viminfo
-.vimrc
-.vscode/
-.cursor/
-.supermaven/
-
-# ------------------------------------------------------------------------------
-# Terminal & Session Management
-# ------------------------------------------------------------------------------
-.warp/
-.tmux/
-.iterm2_shell_integration.zsh
-.config/iterm2
-
-# ------------------------------------------------------------------------------
-# AI & Development Assistants
-# ------------------------------------------------------------------------------
-.chatgpt/
-.claude/agents/
-.claude/commands/
-.claude/debug/
-.claude/docs/
-.claude/ide/
-.claude/plugins/
-.claude/projects/
-.claude/shell-snapshots/
-.claude/statsig/
-.claude/todos/
-.claude/history.jsonl
+# Claude runtime dirs (only specific files are tracked)
+claude/agents/
+claude/commands/
+claude/debug/
+claude/docs/
+claude/ide/
+claude/plugins/
+claude/projects/
+claude/shell-snapshots/
+claude/statsig/
+claude/todos/
+claude/history.jsonl
 .claude.json
 .claude.json.backup
 .claude.backup*
-.config/claude
+config/claude
 
-# ------------------------------------------------------------------------------
-# Version Control & Git Tools
-# ------------------------------------------------------------------------------
-.gitconfig
-.backport/
-.gk/
-
-# ------------------------------------------------------------------------------
-# Security & Secrets
-# ------------------------------------------------------------------------------
-.ssh/
-.gnupg/
-.granted/
-.saml2aws
-*secrets.sh
-
-
-# ------------------------------------------------------------------------------
-# Programming Language Specific
-# ------------------------------------------------------------------------------
-.swiftpm/
-.expo/
-go/
-.local/
-.matplotlib/
-.nix-defexpr/
-.nix-profile
-.no_more_nix
-
-# ------------------------------------------------------------------------------
-# Application Data
-# ------------------------------------------------------------------------------
-.bi-sockets/
-.cups/
-.fjira/
-configstore/
-gtk-2.0/
-temporalio/
-Playwright/
-Postman/
-
-# ------------------------------------------------------------------------------
-# User Directories
-# ------------------------------------------------------------------------------
-# WARNING: These ignore entire user directories - consider if this is intended
-Applications/
-Desktop/
-Developer/
-Documents/
-Downloads/
-Github/
-Library/
-Movies/
-Music/
-Pictures/
-Public/
-iCloud Drive (Archive)/
-PROD EXPORTS/
-psql_queries/
-sftp_test/
-
-# ------------------------------------------------------------------------------
-# File Type Patterns
-# ------------------------------------------------------------------------------
-# WARNING: These patterns apply globally to ALL repositories
-# Consider moving these to project-specific .gitignore files instead
-*.jpeg
-*.sql
-
-# ------------------------------------------------------------------------------
-# Browser Cache
-# ------------------------------------------------------------------------------
-.wget-hsts
+# sqlit runtime (connections/settings are tracked, history is not)
+sqlit/query_history.json
