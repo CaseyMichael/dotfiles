@@ -2,21 +2,6 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- Enable automatic diagnostic display on hover
-vim.api.nvim_create_autocmd("CursorHold", {
-	callback = function()
-		local opts = {
-			focusable = false,
-			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-			border = "rounded",
-			source = "always",
-			prefix = " ",
-			scope = "cursor",
-		}
-		vim.diagnostic.open_float(nil, opts)
-	end,
-})
-
 -- Diagnostic configuration (similar to kickstart.nvim)
 -- See :help vim.diagnostic.Opts
 vim.diagnostic.config({
@@ -93,7 +78,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("gt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
 
 		-- Format buffer (using LSP)
-		map("<leader>f", function()
+		map("<leader>cf", function()
 			vim.lsp.buf.format({ async = true })
 		end, "[F]ormat buffer")
 

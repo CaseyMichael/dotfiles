@@ -15,15 +15,11 @@ vim.opt.wildmode = "longest:full,full" -- Complete longest common part, then sho
 vim.opt.wildignorecase = true -- Case-insensitive completion
 vim.opt.wildoptions = "pum" -- Use popup menu for wildmenu
 
--- Statusline
-vim.opt.statusline = "%F %m %r %w%=%y %l:%c"
-
 -- Set global options (vim.o)
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- Set global variables (vim.g)
 vim.g.mapleader = " "
-vim.g.root_spec = { "cwd" }
 
 -- Configure Snacks UI handlers
 vim.defer_fn(function()
@@ -34,6 +30,9 @@ vim.defer_fn(function()
 		vim.ui.select = require("snacks.picker").select
 	end
 end, 1000)
+
+-- LSP log level (set to "warn" or "error" when not debugging)
+vim.lsp.set_log_level("debug")
 
 -- Disable unused language providers to reduce warnings
 vim.g.loaded_python3_provider = 0

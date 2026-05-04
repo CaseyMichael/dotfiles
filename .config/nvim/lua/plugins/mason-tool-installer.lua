@@ -27,7 +27,8 @@ return {
 			"terraform-ls",
 			"tflint",
 			"tree-sitter-cli",
-			"tsgo",
+			-- "tsgo", -- Swap back and remove vtsls below to use tsgo instead
+			"vtsls",
 			"yaml-language-server",
 		},
 	},

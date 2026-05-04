@@ -4,8 +4,6 @@ return {
 	event = "BufWritePost",
 	config = function()
 		require("lint").linters_by_ft = {
-			javascript = { "eslint" },
-			typescript = { "eslint" },
 			lua = { "luacheck" },
 			json = { "jsonlint" },
 			yaml = { "yamllint" },

@@ -3,7 +3,16 @@ return {
 	enabled = true,
 	opts = {
 		servers = {
-			vtsls = false, -- Disable vtsls in favor of tsgo
+			-- vtsls = false, -- Uncomment to disable vtsls in favor of tsgo
+			vtsls = {
+				settings = {
+					typescript = {
+						tsserver = {
+							maxTsServerMemory = 16384,
+						},
+					},
+				},
+			},
 		},
 	},
 	keys = {
