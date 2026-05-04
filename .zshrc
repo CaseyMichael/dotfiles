@@ -32,3 +32,7 @@ esac
 
 # Worktrunk shell autocomplete
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+USE_DATADOG_MCP=true
+
+export DEVPLAT_USE_ANTHROPIC_CLAUDE_CODE_AUTH=true

@@ -8,6 +8,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/brew/Brewfile"
 export HOMEBREW_NO_AUTO_UPDATE=1
 
+export USE_DATADOG_MCP=true
+
 export SDKROOT=$(xcrun --show-sdk-path)
 
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
