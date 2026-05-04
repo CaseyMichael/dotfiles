@@ -33,6 +33,6 @@ if [[ $- == *i* ]]; then
   export DISABLE_AUTO_TITLE="true"
 fi
 
-source "$XDG_CONFIG_HOME/shell/secrets.sh"
+[ -f "$XDG_CONFIG_HOME/shell/secrets.sh" ] && source "$XDG_CONFIG_HOME/shell/secrets.sh"
 
 export RAINFROG_CONFIG=~/.config/rainfrog

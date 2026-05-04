@@ -182,7 +182,7 @@ zstyle ':completion:*' verbose yes
 # selection of the appropriate completion.
 # ------------------------------------------
 
-source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[ -f "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # ------------------------------------------
 # Activates zsh-autosuggestions plugin. This plugin provides
 # real-time command autosuggestions as you type in the terminal, based on your
@@ -411,7 +411,7 @@ setopt null_glob
 # `rm *.bak` will just do nothing if no `.bak` files exist.
 # ------------------------------------------
 
-source <(fzf --zsh)
+command -v fzf >/dev/null 2>&1 && source <(fzf --zsh)
 # Set up fzf key bindings and fuzzy completion
 #
 
