@@ -1,16 +1,6 @@
-# This is duplicated in the lattice-magic-zsh
-# commenting out due to lsof issues when starting local direnv
-#
-
 # Brew
-# eval "$(/opt/homebrew/bin/brew shellenv)"
-#
-# # Direnv
-# case "$SHELL" in
-# */zsh)
-#   eval "$(direnv hook zsh)"
-#   ;;
-# */bash)
-#   eval "$(direnv hook bash)"
-#   ;;
-# esac
+if [ -x /opt/homebrew/bin/brew ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -x /usr/local/bin/brew ]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
