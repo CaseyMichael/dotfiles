@@ -62,6 +62,7 @@ link config/gh-dash .config/gh-dash
 link config/ghostty .config/ghostty
 link config/keyboard.json .config/keyboard.json
 link config/lazygit .config/lazygit
+link config/lazysql .config/lazysql
 link config/mpv .config/mpv
 link config/ngrok .config/ngrok
 link config/nvim .config/nvim
