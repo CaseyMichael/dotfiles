@@ -97,4 +97,4 @@ Do not invent content that wasn't investigated. A shorter, accurate doc beats a 
 
 ## Step 4: Save the file
 
-Save as `.md` to `/Users/casey/Developer/claude-memory/` by default, unless the user specifies a different location or the document clearly belongs inside a specific project (e.g., a CLAUDE.md or in-repo reference doc). If the destination is genuinely ambiguous, propose a path before saving.
+Save as `.md` to `~/Developer/lattice-claude-memory/00_Inbox/` by default, unless the user specifies a different location or the document clearly belongs inside a specific project (e.g., a CLAUDE.md or in-repo reference doc). If the destination is genuinely ambiguous, propose a path before saving.

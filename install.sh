@@ -73,9 +73,11 @@ link config/uv .config/uv
 link config/worktrunk .config/worktrunk
 
 # .claude — individual files only (dir has untracked runtime content)
-link claude/policy-limits.json .claude/policy-limits.json
-link claude/settings.json .claude/settings.json
-link claude/statusline-command.sh .claude/statusline-command.sh
+link claude/policy-limits.json .config/claude/policy-limits.json
+link claude/settings.json .config/claude/settings.json
+link claude/statusline-command.sh .config/claude/statusline-command.sh
+link claude/rules .config/claude/rules
+link claude/skills .config/claude/skills
 
 # .sqlit
 link sqlit .sqlit

@@ -3,10 +3,10 @@ return {
 	dependencies = { "folke/snacks.nvim" },
 	config = true,
 	opts = {
-		terminal_cmd = "/Users/casey/Developer/lattice/support/claude-code/bin/claude",
+		terminal_cmd = "/Users/casey.peters/Developer/lattice/support/claude-code/bin/claude",
 		terminal = {
 			split_side = "right",
-			split_width_percentage = 0.30,
+			split_width_percentage = 0.25,
 		},
 	},
 	keys = {

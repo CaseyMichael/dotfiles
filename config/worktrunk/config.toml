@@ -94,7 +94,7 @@ else
 fi
 """
 
-[post-create]
+[pre-start]
 setup = """
 echo "🔧 Allowing direnv for {{ branch }}..."
 direnv allow
