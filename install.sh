@@ -68,6 +68,7 @@ link config/ngrok .config/ngrok
 link config/nvim .config/nvim
 link config/rainfrog .config/rainfrog
 link config/shell .config/shell
+link config/tmux-palette .config/tmux-palette
 link config/starship.toml .config/starship.toml
 link config/uv .config/uv
 link config/worktrunk .config/worktrunk
