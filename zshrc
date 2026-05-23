@@ -2,9 +2,6 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-# Inserted by de2 installer
-[ -f ~/.lattice-magic-zsh ] && source ~/.lattice-magic-zsh
-
 # Add /bin/env to path
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 
@@ -37,4 +34,4 @@ USE_DATADOG_MCP=true
 export DEVPLAT_USE_ANTHROPIC_CLAUDE_CODE_AUTH=true
 
 # Inserted by de2 installer
-source ~/.lattice-magic-zsh
+[ -f ~/.lattice-magic-zsh ] && source ~/.lattice-magic-zsh

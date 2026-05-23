@@ -200,7 +200,9 @@
       "mcp__unblocked__data_retrieval",
       "mcp__unblocked__link_resolver",
       "mcp__unblocked__user_feedback",
-      "mcp__unblocked__context_research"
+      "mcp__unblocked__context_research",
+      "mcp__datadog__list_datadog_skills",
+      "mcp__datadog__load_datadog_skill"
     ],
     "deny": [
       "Bash(aws:*)",
