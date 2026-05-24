@@ -17,3 +17,48 @@ Turn a trace URL/ID or error-tracking issue URL into a grounded investigation.
 Never propose "want me to investigate?" — always propose a concrete action ("want me to root-cause this DB timeout?").
 
 Out of scope: proposing fixes, writing code, filing tickets, posting messages, running app code, reproducing locally.
+
+## Phase 1: Ground
+
+### Parse input
+
+Accept any of:
+
+- **Trace URL** — `app.datadoghq.com/apm/trace/<trace_id>?...`. Extract `trace_id`.
+- **Bare trace ID** — hex or decimal string in a clear "investigate" context.
+- **Error-tracking URL** — `app.datadoghq.com/error-tracking/...issue/<issue_id>`. Call `get_datadog_error_tracking_issue(issue_id)`, then pick a representative trace_id from a recent error sample.
+
+If input is ambiguous or missing, ask once for the trace ID or URL.
+
+### Discover Datadog skills
+
+Before any other Datadog MCP calls, in **parallel**:
+
+- `load_datadog_skill(skill_name='datadog/traces')`
+- `list_datadog_skills(query='trace investigation')` — load any clearly matching result
+
+**Skip discovery** if a sibling skill in the same session already loaded `datadog/traces`.
+
+### Fetch trace + logs
+
+In **parallel**:
+
+- `get_datadog_trace(trace_id=<id>)`
+- `search_datadog_logs` filtered by `trace_id:<id>` — fetch a small sample (last ~20 log events for the trace)
+
+### Summarize (4–8 lines)
+
+Print a terse summary covering:
+
+- Root service + endpoint, total duration, HTTP status if applicable
+- **First** error span in causal order (not the deepest): service, operation, error type, error message
+- Latency hotspot: longest span(s) by self-time
+- Useful trace tags: `env`, `version`, `user.id`, `org.id` if present
+- Direct link back to the trace in Datadog
+- One-line note on log sample (e.g., "20 logs, 3 ERROR-level around the failing span")
+
+### Cache for session
+
+Hold the raw trace, log sample, and summary in conversation context. Phase 2 investigations reuse these — do not re-fetch unless the user expands the scope (e.g., longer log window).
+
+**Phase 1 ends with the printed summary. No investigation yet.**
