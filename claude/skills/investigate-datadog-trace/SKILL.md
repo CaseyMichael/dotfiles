@@ -62,3 +62,33 @@ Print a terse summary covering:
 Hold the raw trace, log sample, and summary in conversation context. Phase 2 investigations reuse these — do not re-fetch unless the user expands the scope (e.g., longer log window).
 
 **Phase 1 ends with the printed summary. No investigation yet.**
+
+## Phase 2: Direct
+
+After the Phase 1 summary, propose **1–2 concrete investigations** derived from what the summary shows. Each proposal must be a specific action the user can accept or redirect.
+
+### Proposal mapping
+
+| Phase 1 finding | Propose |
+| --- | --- |
+| Error span with stack in lattice code | root-cause + code-link |
+| Error span in third-party / framework code | root-cause + pattern-check |
+| Slow trace, no errors | root-cause (latency angle) and/or pattern-check |
+| From error tracking, high occurrence count | pattern-check first, then root-cause |
+
+### Execute
+
+When the user picks a direction (including mid-Phase-1 redirects), read the matching playbook and follow it:
+
+- `references/root-cause.md`
+- `references/code-linking.md`
+- `references/pattern-check.md`
+
+Investigations are independent and chainable. The user can run one, stop, or chain (e.g., root-cause → code-link → pattern-check). The cached trace + logs serve all of them.
+
+### Rules
+
+- Never propose generic "want to investigate?" — always concrete and bounded.
+- Never propose fixes, never write code, never file tickets, never call `/write-ticket`.
+- If the user wants a ticket from the findings, they'll invoke `/write-ticket` separately — the conversation already carries the context.
+- If a Datadog MCP call fails (auth, 404, org error), surface the raw error and stop. Do not fabricate.
