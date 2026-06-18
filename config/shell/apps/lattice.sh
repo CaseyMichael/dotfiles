@@ -2,6 +2,24 @@ alias pfw='pnpm -F weaver'
 alias pfwla='RUN_ALL_ESLINT_RULES=true pnpm -F weaver lint '
 alias pfd='pnpm -F dazzle'
 
+# fix sharp install dependency issues
+export SHARP_IGNORE_GLOBAL_LIBVIPS=1
+
+function ldev() {
+  tmux rename-window lattice
+  cd ~/Developer/lattice/ || exit
+}
+
+function linfra() {
+  tmux rename-window infrastructure
+  cd ~/Developer/lattice/ || exit
+}
+
+function lnotes() {
+  tmux rename-window notes
+  cd ~/Developer/lattice/ || exit
+}
+
 function updateTsgo() {
   npm install -g @typescript/native-preview
 }

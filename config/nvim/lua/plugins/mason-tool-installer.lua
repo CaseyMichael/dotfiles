@@ -21,14 +21,14 @@ return {
 			"shellcheck",
 			"shfmt",
 			"sqlfluff",
-			"stylelint-lsp",
+			"stylelint-language-server",
 			"stylua",
 			"taplo",
 			"terraform-ls",
 			"tflint",
 			"tree-sitter-cli",
-			-- "tsgo", -- Swap back and remove vtsls below to use tsgo instead
-			"vtsls",
+			"tsgo", -- Swap back and remove vtsls below to use tsgo instead
+			-- "vtsls",
 			"yaml-language-server",
 		},
 	},

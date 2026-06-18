@@ -19,3 +19,6 @@ config/claude
 
 # sqlit runtime (connections/settings are tracked, history is not)
 sqlit/query_history.json
+
+# lazygit
+config/lazysql/config.toml
