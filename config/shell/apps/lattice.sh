@@ -1,7 +1,3 @@
-alias pfw='pnpm -F weaver'
-alias pfwla='RUN_ALL_ESLINT_RULES=true pnpm -F weaver lint '
-alias pfd='pnpm -F dazzle'
-
 # fix sharp install dependency issues
 export SHARP_IGNORE_GLOBAL_LIBVIPS=1
 
@@ -17,15 +13,12 @@ function linfra() {
 
 function lnotes() {
   tmux rename-window notes
-  cd ~/Developer/lattice/ || exit
+  cd ~/Developer/lattice-claude-memory/ || exit
 }
 
 function updateTsgo() {
   npm install -g @typescript/native-preview
 }
-
-alias psfon='pnpm statsigFlag:on'
-alias psfoff='pnpm statsigFlag:off'
 
 # AWS SQS Local Development Utilities
 # These functions work with local SQS (LocalStack, ElasticMQ, etc.)
