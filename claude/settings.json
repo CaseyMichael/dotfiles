@@ -235,7 +235,11 @@
       "mcp__notion__notion-get-users",
       "mcp__notion__notion-get-self",
       "mcp__notion__notion-get-user",
-      "mcp__notion__notion-search"
+      "mcp__notion__notion-search",
+      "TaskCreate",
+      "TaskGet",
+      "TaskList",
+      "TaskUpdate"
     ],
     "deny": [
       "Bash(aws:*)",
@@ -250,7 +254,9 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "/Users/casey.peters/.claude/statusline_command.py"
+    "command": "bun run /Users/casey.peters/Developer/ccstatusline/src/ccstatusline.ts",
+    "padding": 0,
+    "refreshInterval": 10
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,

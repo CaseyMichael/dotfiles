@@ -1,25 +1,6 @@
 # fix sharp install dependency issues
 export SHARP_IGNORE_GLOBAL_LIBVIPS=1
 
-function ldev() {
-  tmux rename-window lattice
-  cd ~/Developer/lattice/ || exit
-}
-
-function linfra() {
-  tmux rename-window infrastructure
-  cd ~/Developer/lattice/ || exit
-}
-
-function lnotes() {
-  tmux rename-window notes
-  cd ~/Developer/lattice-claude-memory/ || exit
-}
-
-function updateTsgo() {
-  npm install -g @typescript/native-preview
-}
-
 # AWS SQS Local Development Utilities
 # These functions work with local SQS (LocalStack, ElasticMQ, etc.)
 
@@ -180,7 +161,8 @@ function sqs-send-message() {
   fi
 
   local queue_name="$1"
-  local message_body="${2:-{\"test\": \"message\", \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}}"
+  local default_body="{\"test\":\"message\",\"timestamp\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}"
+  local message_body="${2:-$default_body}"
   local endpoint=$(sqs-endpoint)
 
   local queue_url=$(_sqs-resolve-queue-url "$queue_name")

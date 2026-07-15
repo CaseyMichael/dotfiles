@@ -12,4 +12,20 @@ return {
 			},
 		},
 	},
+	keys = {
+		{
+			"<leader>e",
+			function()
+				Snacks.explorer()
+			end,
+			desc = "Explorer Snacks (cwd)",
+		},
+		{
+			"<leader>E",
+			function()
+				Snacks.explorer({ cwd = LazyVim.root() })
+			end,
+			desc = "Explorer Snacks (Root Dir)",
+		},
+	},
 }
