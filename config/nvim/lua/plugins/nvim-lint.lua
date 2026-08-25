@@ -5,7 +5,8 @@ return {
 	"mfussenegger/nvim-lint",
 	opts = {
 		linters_by_ft = {
-			lua = { "luacheck" },
+			-- No lua linter: mason's luacheck crashes under its bundled Lua 5.5,
+			-- and lua-language-server already reports diagnostics.
 			json = { "jsonlint" },
 			yaml = { "yamllint" },
 		},

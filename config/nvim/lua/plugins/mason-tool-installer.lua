@@ -11,7 +11,6 @@ return {
 			"hadolint",
 			"json-lsp",
 			"jsonlint", -- used by nvim-lint.lua
-			"luacheck", -- used by nvim-lint.lua
 			"lua-language-server",
 			"markdown-toc",
 			"markdownlint-cli2",
