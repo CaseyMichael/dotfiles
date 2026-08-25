@@ -1,6 +1,5 @@
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	enabled = true,
 	opts = {
 		ensure_installed = {
 			"bash-language-server",
@@ -11,6 +10,8 @@ return {
 			"eslint_d",
 			"hadolint",
 			"json-lsp",
+			"jsonlint", -- used by nvim-lint.lua
+			"luacheck", -- used by nvim-lint.lua
 			"lua-language-server",
 			"markdown-toc",
 			"markdownlint-cli2",
@@ -27,9 +28,9 @@ return {
 			"terraform-ls",
 			"tflint",
 			"tree-sitter-cli",
-			"tsgo", -- Swap back and remove vtsls below to use tsgo instead
-			-- "vtsls",
+			-- tsc (TypeScript 7 LSP) is installed via nvim-lspconfig.lua servers.tsc
 			"yaml-language-server",
+			"yamllint", -- used by nvim-lint.lua
 		},
 	},
 }

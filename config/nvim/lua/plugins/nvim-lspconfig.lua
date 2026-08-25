@@ -1,27 +1,18 @@
 return {
 	"neovim/nvim-lspconfig",
-	enabled = true,
 	opts = {
 		servers = {
-			vtsls = false, -- Uncomment to disable vtsls in favor of tsgo
-			-- vtsls = {
-			-- 	settings = {
-			-- 		typescript = {
-			-- 			tsserver = {
-			-- 				maxTsServerMemory = 16384,
-			-- 			},
-			-- 		},
-			-- 	},
-			-- },
+			-- TypeScript 7: `tsc --lsp --stdio`. Replaces the tsgo preview
+			-- (npm @typescript/native-preview) and vtsls/tsserver.
+			-- LazyVim installs this via mason (package `tsc`) and enables it.
+			tsc = {},
+			tsgo = false, -- superseded by tsc; mason auto-enables anything installed
+			vtsls = false,
 		},
 	},
 	keys = {
-		-- Keep hover and signature help as global keymaps (useful everywhere)
-		{ "K", vim.lsp.buf.hover, desc = "Show hover documentation" },
-		{ "<C-k>", vim.lsp.buf.signature_help, desc = "Show signature help", mode = { "n", "i" } },
-		-- Diagnostic keymaps (global, work everywhere)
-		{ "[d", vim.diagnostic.goto_prev, desc = "Previous diagnostic" },
-		{ "]d", vim.diagnostic.goto_next, desc = "Next diagnostic" },
+		-- K (hover) and <C-k> (signature help) are Neovim defaults, and LazyVim
+		-- already maps ]d/[d via vim.diagnostic.jump.
 		{ "<leader>q", vim.diagnostic.setloclist, desc = "Diagnostics to location list" },
 	},
 }

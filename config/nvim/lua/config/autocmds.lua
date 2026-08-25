@@ -22,8 +22,6 @@ vim.diagnostic.config({
 	},
 })
 
--- vim.lsp.enable("tsgo")
-
 -- LSP Attach autocmd - matching kickstart.nvim keybindings
 -- This sets up buffer-local LSP features when an LSP attaches to a buffer
 vim.api.nvim_create_autocmd("LspAttach", {

@@ -1,12 +1,10 @@
 return {
 	"CaseyMichael/telescope-pnpm-monorepo.nvim",
-	-- dir = "~/Developer/telescope-pnpm-monorepo.nvim",
-	enabled = true,
-	opts = {
-		slient = false,
-		autoload_telescope = true,
-		data_path = vim.fn.stdpath("data"),
-	},
+	-- Local dev: point at the feature/weaver-modules worktree
+	dir = "~/Developer/telescope-pnpm-monorepo.nvim/.worktrees/weaver-modules",
+	-- silent/autoload_telescope were already the plugin defaults, and data_path
+	-- is not an option the plugin reads.
+	opts = {},
 	dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	keys = {
 		{

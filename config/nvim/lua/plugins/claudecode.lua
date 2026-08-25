@@ -1,13 +1,34 @@
 return {
 	"coder/claudecode.nvim",
 	dependencies = { "folke/snacks.nvim" },
-	config = true,
 	opts = {
-		terminal_cmd = "/Users/casey.peters/Developer/lattice/support/claude-code/bin/claude",
+		auto_start = true,
+		terminal_cmd = vim.fn.expand("~/Developer/lattice/support/claude-code/bin/claude"),
 		terminal = {
 			split_side = "right",
-			split_width_percentage = 0.50,
+			split_width_percentage = 0.30,
 		},
+		-- layout only accepts "vertical" or "horizontal" (the old "unified" here
+		-- would have tripped the plugin's assert); the rest were already defaults.
+		diff_opts = {
+			keep_terminal_focus = true,
+		},
+	},
+	cmd = {
+		"ClaudeCode",
+		"ClaudeCodeFocus",
+		"ClaudeCodeSelectModel",
+		"ClaudeCodeAdd",
+		"ClaudeCodeSend",
+		"ClaudeCodeTreeAdd",
+		"ClaudeCodeStatus",
+		"ClaudeCodeStart",
+		"ClaudeCodeStop",
+		"ClaudeCodeOpen",
+		"ClaudeCodeClose",
+		"ClaudeCodeDiffAccept",
+		"ClaudeCodeDiffDeny",
+		"ClaudeCodeCloseAllDiffs",
 	},
 	keys = {
 		{ "<leader>a", nil, desc = "AI/Claude Code" },

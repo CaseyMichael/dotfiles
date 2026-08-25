@@ -1,17 +1,13 @@
+-- Use opts, not config: LazyVim's own config adds debouncing, fallback/global
+-- linters and missing-linter warnings, and a `config` function here would
+-- replace all of that plus LazyVim's own linters_by_ft entries.
 return {
 	"mfussenegger/nvim-lint",
-	enabled = true,
-	event = "BufWritePost",
-	config = function()
-		require("lint").linters_by_ft = {
+	opts = {
+		linters_by_ft = {
 			lua = { "luacheck" },
 			json = { "jsonlint" },
 			yaml = { "yamllint" },
-		}
-		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-			callback = function()
-				require("lint").try_lint()
-			end,
-		})
-	end,
+		},
+	},
 }
