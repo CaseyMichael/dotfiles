@@ -12,6 +12,17 @@ fi
 """
 
 [[pre-start]]
+copy-envrc-mine = """
+echo "📋 Copying .envrc.mine from main worktree_path..."
+if [ -f "{{ primary_worktree_path }}/.envrc.mine" ]; then
+    cp "{{ primary_worktree_path }}/.envrc.mine" "{{ worktree_path }}/.envrc.mine"
+    echo "✓ .envrc.mine copied"
+else
+    echo "✓ No .envrc.mine to copy"
+fi
+"""
+
+[[pre-start]]
 setup = """
 echo "🔧 Allowing direnv for {{ branch }}..."
 direnv allow
