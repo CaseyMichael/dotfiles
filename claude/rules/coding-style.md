@@ -49,3 +49,7 @@ A principle that states every method should either:
 - Example: user.getEmail()
 
 _Note_ A Command can call a Query but a Query can not call a command\*
+
+## Loops
+
+- Use our internal BatchPromise library for all loops that have async/await patterns

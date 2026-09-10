@@ -239,7 +239,8 @@
       "TaskCreate",
       "TaskGet",
       "TaskList",
-      "TaskUpdate"
+      "TaskUpdate",
+      "mcp__lattice_slack__sendBlockMessage"
     ],
     "deny": [
       "Bash(aws:*)",
@@ -252,6 +253,9 @@
       "../lattice"
     ]
   },
+  "disabledMcpjsonServers": [
+    "datadog"
+  ],
   "statusLine": {
     "type": "command",
     "command": "bun run /Users/casey.peters/Developer/ccstatusline/src/ccstatusline.ts",
@@ -274,5 +278,6 @@
       }
     }
   },
+  "effortLevel": "medium",
   "editorMode": "vim"
 }
