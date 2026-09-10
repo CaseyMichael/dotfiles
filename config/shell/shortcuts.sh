@@ -19,13 +19,23 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-alias dev="cd ~/Developer/"
+alias dev="cd ~/Developer/lattice"
+alias notes="cd ~/Developer/lattice-claude-memory/00_Inbox/"
 
 # === System
 alias mymac="system_profiler SPHardwareDataType | rg -i \"Model Identifier|Chip|Memory\" | awk '{\$1=\$1; print}' && echo -n 'OS: ' && sw_vers -productName | tr -d '\n' && echo -n ' ' && sw_vers -productVersion"
 
 find-pid-by-port() {
   lsof -ti :"$1"
+}
+
+reload_all_zshrc() {
+  # Reload ~/.zshrc in every tmux pane running zsh
+  tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index} #{pane_current_command}' |
+    awk '$2=="zsh"{print $1}' |
+    while read -r pane_id; do
+      tmux send-keys -t "$pane_id" 'source ~/.zshrc' Enter
+    done
 }
 
 function l() {
