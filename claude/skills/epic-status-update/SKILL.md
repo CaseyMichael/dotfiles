@@ -46,6 +46,8 @@ Keep it to what a stakeholder can read in 10 seconds: outcomes over ticket title
 ## Gotchas
 
 - `Status updates` is a plain string field, so no markdown or ADF. Newlines are fine.
+- Jira turns ticket keys into smartlinks, so reading the field returns `<custom data-type="smartlink">` tags around them. When rebuilding the old entries to write back, collapse those tags to the plain key (e.g. `PD-122085`) rather than copying the tags.
+- Always re-read the field after writing. An edit can be silently overwritten, so confirm the new entry is the live one.
 - Never overwrite the old entries. Always fetch the current value immediately before writing so a manual edit made in the meantime is not clobbered.
 - If the newest existing entry already has today's date, replace that entry with the new one instead of stacking a second entry with the same date. Keep everything older.
 - If the epic has zero completed children this week, say so honestly in the entry and flag risk, rather than padding.
