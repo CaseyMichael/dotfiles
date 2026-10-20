@@ -3,6 +3,7 @@
 - Write code that adheres to the following principles
 - Do not introduce code that breaks existing linting rules
 - Prefer using built in utilities from Node instead of reaching for a new 3rd party dependency
+- Do not write comments in code. Ever.
 
 ## Tell, Don't Ask
 
@@ -43,7 +44,7 @@ A principle that states every method should either:
 - Performs an action/side effect
 - Example: user.updateEmail(newEmail)
 
-2. Query: Return data but not change state
+1. Query: Return data but not change state
 
 - Pure observation, no side effects
 - Example: user.getEmail()
