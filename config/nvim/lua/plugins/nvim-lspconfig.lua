@@ -1,5 +1,10 @@
 return {
 	"neovim/nvim-lspconfig",
+	init = function()
+		-- lattice: pnpm doesn't hoist eslint-plugin-no-only-tests, so eslint-lsp can't resolve it
+		local plugins = vim.fn.expand("~/Developer/lattice/packages/eslint-config/node_modules")
+		vim.env.NODE_PATH = vim.env.NODE_PATH and (vim.env.NODE_PATH .. ":" .. plugins) or plugins
+	end,
 	opts = {
 		servers = {
 			-- TypeScript 7: `tsc --lsp --stdio`. Replaces the tsgo preview
