@@ -1,116 +1,231 @@
 tap "argoproj/tap"
-tap "common-fate/granted"
+tap "atlassian/acli"
+tap "common-fate/granted", trusted: true
 tap "fwdcloudsec/granted"
-tap "jondot/tap"
+tap "gromgit/fuse"
+tap "jondot/tap", trusted: true
 tap "jstkdng/programs"
 tap "julien-cpsn/atac"
-tap "latticehr/lattice", "git@github.com:latticehr/homebrew-lattice.git"
+tap "latticehr/lattice", "git@github.com:latticehr/homebrew-lattice.git", trusted: true
 tap "max-sixty/worktrunk"
 tap "mk-5/mk-5"
 tap "ngrok/ngrok"
+tap "ory/tap"
 tap "quantonganh/tap"
-tap "sqitchers/sqitch"
+tap "sqitchers/sqitch", trusted: true
+# Open-source formatting library for C++
 brew "fmt"
-brew "libevent"
+# Library to load and enumerate PKCS#11 modules
 brew "p11-kit"
+# Asynchronous event library
+brew "libevent"
+# Validating, recursive, caching DNS resolver
 brew "unbound"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.14"
+# Email client that runs in your terminal
 brew "aerc"
+# Official Amazon AWS command-line interface
 brew "awscli"
+# Yet another cross-platform graphical process/system monitor
 brew "bottom"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# Text-based personal organizer
 brew "calcurse"
+# Cross-platform make
 brew "cmake"
+# Console Matrix
 brew "cmatrix"
+# Linux virtual machines
 brew "lima"
+# Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
+# Get, unpack, build, and install modules from CPAN
 brew "cpanminus"
+# Highly capable, feature-rich programming language
 brew "perl"
+# Cryptographic recipes and primitives for Python
 brew "cryptography"
+# Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# GNU data recovery tool
+brew "ddrescue"
+# Pack, ship and run any application as a lightweight container
 brew "docker"
+# Docker CLI plugin for extended build capabilities with BuildKit
 brew "docker-buildx"
+# Isolated development environments using Docker
 brew "docker-compose"
+# Select default apps for documents and URL schemes on macOS
 brew "duti"
+# Collection of reusable C++ library artifacts developed at Facebook
 brew "folly"
+# C++14 implementation of the TLS-1.3 standard
 brew "fizz"
+# Modular, composable client/server abstractions framework
 brew "wangle"
+# Facebook's branch of Apache Thrift, including a new C++ server
 brew "fbthrift"
+# Thrift functions for querying information from a service
 brew "fb303"
+# Shared library for Watchman and Eden projects
 brew "edencommon"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# C routines to compute the Discrete Fourier Transform
 brew "fftw"
+# Fuzzy filename finder matching across directories as well as files
 brew "fuzzy-find"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# GitHub command-line tool
 brew "gh"
+# Interpreter for PostScript and PDF
 brew "ghostscript"
+# Git repository organizer & rebase workflow automation tool
 brew "git-machete"
+# Manage stacked Git branches
+brew "git-spice"
+# Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Next generation open source RPC library and framework
 brew "grpc"
+# Interactive web UI for gRPC, along the lines of postman
 brew "grpcui"
+# Like cURL, but for gRPC
 brew "grpcurl"
-brew "pkgconf"
+# Command-line benchmarking tool
 brew "hyperfine"
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Network authentication protocol
 brew "krb5"
+# Simple terminal UI for git commands
 brew "lazygit"
+# Cross-platform TUI database management tool
 brew "lazysql"
+# C library SSHv1/SSHv2 client and server protocols
 brew "libssh"
+# Fully functional local AWS cloud stack
 brew "localstack"
+# Just-In-Time Compiler (JIT) for the Lua programming language
 brew "luajit"
+# Package manager for the Lua programming language
 brew "luarocks"
+# Mac App Store command-line interface
 brew "mas"
+# Media player based on MPlayer and mplayer2
 brew "mpv"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Open-source, cross-platform JavaScript runtime environment
 brew "node", link: false
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
+# Terminal multiplexer
 brew "tmux"
+# Process manager for Procfile-based applications and tmux
 brew "overmind"
+# Execute binaries from Python packages in isolated environments
 brew "pipx"
+# Object-relational database system
 brew "postgresql@12"
+# Object-relational database system
 brew "postgresql@14", link: false
+# Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.13"
+# Generic machine emulator and virtualizer
 brew "qemu"
+# Database management TUI for PostgreSQL/MySQL/SQLite
 brew "rainfrog"
+# JSON parser/generator for C++ with SAX and DOM style APIs
 brew "rapidjson"
+# Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
-brew "ruby"
+# Powerful, clean, object-oriented scripting language
+brew "ruby", link: false
+# Cross-shell prompt for astronauts
 brew "starship"
+# Modernized, complete, self-contained TeX/LaTeX engine
 brew "tectonic"
+# Powerful free data recovery utility
+brew "testdisk"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Watch files and take action when they change
 brew "watchman"
+# Internet file retriever
 brew "wget"
+# UNIX shell (command interpreter)
 brew "zsh"
+# Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
+# Additional completion definitions for zsh
 brew "zsh-completions"
+# Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-brew "jstkdng/programs/ueberzugpp"
-brew "julien-cpsn/atac/atac"
-brew "latticehr/lattice/lattice-devenv"
-brew "max-sixty/worktrunk/wt"
-brew "mk-5/mk-5/fjira"
-brew "quantonganh/tap/chatgpt-tui"
+# Software to interact with Atlassian Cloud from the terminal
+brew "atlassian/acli/acli", trusted: true
+# Dev Env for Lattice Engineers
+brew "latticehr/lattice/lattice-devenv", trusted: true
+# Use Ory from your terminal!
+brew "ory/tap/cli", trusted: true
+# Command-line interface for 1Password
 cask "1password-cli"
+# Chromium based browser
 cask "arc"
+# 3D model slicing software for 3D printers, maintained by Bambu Lab
 cask "bambu-studio"
+# Compact TeX distribution as alternative to the full TeX Live / MacTeX
 cask "basictex"
+# Desktop password and login vault
 cask "bitwarden"
 cask "font-hack"
 cask "font-jetbrains-mono-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Web browser
 cask "google-chrome"
+# Open-source keystroke visualiser
 cask "keycastr"
+# Screen and video recording software
 cask "loom"
+# File system integration
+cask "macfuse"
+# Re-mounts write-protected NTFS volumes
+cask "mounty"
+# Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Collaboration platform for API development
 cask "postman"
+# Toolbox companion for QMK Firmware
 cask "qmk-toolbox"
+# Control your tools with a few keystrokes
 cask "raycast"
+# Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Web browser
 cask "thebrowsercompany-dia"
+# Open-source code editor
 cask "visual-studio-code"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
 go "github.com/adiom-data/grpcmcp"
+npm "@anthropic-ai/claude-code"
+npm "@djolex999/vir-cli"
+npm "bun"
+npm "corepack"
+npm "node-gyp"
+npm "pnpm"
+npm "turbo"
