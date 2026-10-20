@@ -35,3 +35,8 @@ export DEVPLAT_USE_ANTHROPIC_CLAUDE_CODE_AUTH=true
 
 # Inserted by de2 installer
 [ -f ~/.lattice-magic-zsh ] && source ~/.lattice-magic-zsh
+
+. "$HOME/.local/share/../bin/env"
+
+# Added by Teamwork Graph CLI installer
+export PATH="/Users/casey.peters/.local/bin:$PATH"
