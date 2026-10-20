@@ -240,7 +240,43 @@
       "TaskGet",
       "TaskList",
       "TaskUpdate",
-      "mcp__lattice_slack__sendBlockMessage"
+      "mcp__lattice_slack__sendBlockMessage",
+      "mcp__lattice_slack__joinChannel",
+      "mcp__jira__jira_batch_get_changelogs",
+      "mcp__jira__jira_create_issue_link",
+      "mcp__statsig__search",
+      "mcp__statsig__fetch",
+      "mcp__unblocked__context_get_urls",
+      "mcp__unblocked__context_get_rules",
+      "mcp__datadog__get_change_stories",
+      "mcp__datadog__search_datadog_entities",
+      "mcp__datadog__get_rum_summary",
+      "mcp__datadog__get_rum_view_waterfall",
+      "mcp__datadog__generate_monitor_message",
+      "mcp__datadog__get_monitor_templates",
+      "mcp__datadog__monitor_groups_search",
+      "mcp__datadog__recommend_monitor_threshold",
+      "mcp__datadog__validate_monitor_definition",
+      "mcp__datadog__analyze_datadog_error_tracking_errors",
+      "mcp__datadog__get_datadog_error_tracking_analytics",
+      "mcp__datadog__aggregate_dora_events",
+      "mcp__datadog__get_datadog_code_coverage_branch_summary",
+      "mcp__datadog__get_datadog_code_coverage_commit_summary",
+      "mcp__datadog__get_datadog_code_coverage_files",
+      "mcp__datadog__get_datadog_code_coverage_pr_summary",
+      "mcp__datadog__get_datadog_deployment_gate",
+      "mcp__datadog__get_datadog_deployment_gate_evaluation",
+      "mcp__datadog__get_datadog_flaky_tests_management_policies",
+      "mcp__datadog__get_datadog_test_optimization_settings",
+      "mcp__datadog__get_dora_fields",
+      "mcp__datadog__get_prs_by_head_branch",
+      "mcp__datadog__search_datadog_deployment_gate_evaluations",
+      "mcp__datadog__search_datadog_deployment_gate_rule_evaluations",
+      "mcp__datadog__search_datadog_deployment_gates",
+      "mcp__datadog__search_dora_events",
+      "mcp__datadog__search_pr_insights",
+      "mcp__datadog__list_synthetics_locations",
+      "mcp__lattice_slack__uploadFile"
     ],
     "deny": [
       "Bash(aws:*)",
@@ -253,6 +289,7 @@
       "../lattice"
     ]
   },
+  "model": "opus",
   "disabledMcpjsonServers": [
     "datadog"
   ],
@@ -268,13 +305,22 @@
     "skill-creator@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "ponytail@ponytail": true
+    "ponytail@ponytail": true,
+    "github@claude-plugins-official": true,
+    "datadog@claude-plugins-official": true,
+    "atlassian@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
       "source": {
         "source": "github",
         "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "unblocked-skills": {
+      "source": {
+        "source": "github",
+        "repo": "unblocked/skills"
       }
     }
   },
